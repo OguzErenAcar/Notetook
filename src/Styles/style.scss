@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flexCenter{
+    display: flex;
+    justify-content: center;
+}
+
+#Navbar{
+    margin-top: 50px;
+    @extend .flexCenter;
+    width: 100%;
+    #Navtab{ 
+        width: 80%;
+        nav{
+            display: flex;
+            justify-content: space-around;
+            button {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+#ContentContainer{
+    margin-top: 40px;
+    @extend.flexCenter;
+    #Content{
+        width: 80%;
+        @extend.flexCenter;
+        height: 700px;
+        border-radius: 20px;
+        align-items: center;
+        #Notes{
+            width: 80%;
+            height: 90%;
+            #inputDiv{
+                @extend.flexCenter;
+            }
+            
+            #notfound{
+                margin-top: 20px;
+                font-size: 20px;
+                @extend.flexCenter;
+            }
+        }
+    }
+}
+
+.Favories{
+    width: 80%;
+    height: 90%;
+}
+.Trash{
+    width: 80%;
+    height: 90%;
+}
+
+.ListComp{
+    margin-top: 20px;
+    height: 92%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap:30px;
+     .NoteComp{
+        margin-top: 10px;
+        @extend.flexCenter;
+        align-items: center;
+        border-radius: 15px;
+        .NoteContainer{
+            p{
+                height: 100px; 
+            }
+        }
+     }
+}
