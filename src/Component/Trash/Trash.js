@@ -16,9 +16,8 @@ function Trash() {
     <div className='Trash'>
       <div className='ListComp'>
       {list.length>0?list.map((item,index)=>(
-        <> 
-         {  <TrashNote index={index} key={index}  >{item} </TrashNote> }
-        </>
+         <TrashNote index={index} key={index}  >{item} </TrashNote>  
+       
       )):
       <li>boş</li>}
       </div>

@@ -12,7 +12,9 @@ function Navbar(){
     const [activeTab,setactiveTab]=useState(1)
 
     const dispatch= useDispatch()
-    dispatch(ChangeTab(activeTab))
+    useEffect(()=>{
+        dispatch(ChangeTab(activeTab))
+    },[activeTab])
 
     return(
         <div id="Navbar">

@@ -21,12 +21,11 @@ function ListComp() {
     <div className="ListComp">
       {noteList && noteList.length > 0 ? (
         noteList.map((note, index) => (
-          <>
+        
             <Note key={index} index={index} {...note} removeCalback={removeElement}>
               {note}
             </Note>
-          </>
-        ))
+         ))
       ) : (
         <></>
       )}

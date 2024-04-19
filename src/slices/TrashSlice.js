@@ -10,14 +10,12 @@ const Trash=createSlice({
     initialState,
     reducers:{
         addTrash:(state,action)=>{
-            state.value=[...state.value,action.payload]
-            console.log(state.value,"in trash")
+            state.value=[...state.value,action.payload] 
         },
         removeTrash:(state,action)=>{
             const index = action.payload;
             const list =state.value.filter(a=>a!==state.value[index])
-            state.value=list
-            console.log(list)
+            state.value=list 
         }
     }
 })

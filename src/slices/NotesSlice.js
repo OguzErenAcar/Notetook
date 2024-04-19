@@ -8,8 +8,7 @@ const Notes=createSlice({
     name:"Notes",
     initialState,
     reducers:{
-        addNote:(state,action)=>{
-            console.log(action.payload)
+        addNote:(state,action)=>{ 
             const newTodo={
                 text:action.payload,
                 fav:false,
