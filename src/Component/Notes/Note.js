@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux"; 
+import { useDispatch } from "react-redux";
 import { addTrash } from "../../slices/TrashSlice";
-import {addFav,removeFav} from "../../slices/NotesSlice";
+import { addFav, removeFav } from "../../slices/NotesSlice";
 
-function Note({fav,text, removeCalback,index } ) {
+function Note({ fav, text, removeCalback, index }) {
   const dispatch = useDispatch();
   const AddFavhandle = () => {
     dispatch(addFav(index));
   };
   const removeFavhandle = () => {
-    console.log("favremove")
+    console.log("favremove");
     dispatch(removeFav(index));
   };
   const MoveTrashhandle = () => {
@@ -18,27 +18,31 @@ function Note({fav,text, removeCalback,index } ) {
   };
 
   return (
-    <div className="bg-amber-200 NoteComp">
+    
+    <div className="NoteComp">
       <div className="NoteContainer">
-        <p>{text}</p>
-        <button
+        <p id="note">{text.slice(0,83)}</p>
+        <span
           onClick={() => {
             MoveTrashhandle();
           }}
-          className="bg-green-200"
+          id="MoveTrash"
+          class="material-symbols-outlined"
         >
-          MoveTrash
-        </button>
-        <button
+          delete_sweep
+        </span>
+        <span
           onClick={() => {
             !fav ? AddFavhandle() : removeFavhandle();
           }}
-          style={{
-            height: 20,
-            width: 20,
-            background: !fav ? "black" : "yellow",
-          }}
-        ></button>
+          className={
+            fav
+              ? "fav material-symbols-outlined"
+              : "notfav material-symbols-outlined"
+          }
+        >
+          hotel_class
+        </span>
       </div>
     </div>
   );

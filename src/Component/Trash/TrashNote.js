@@ -19,11 +19,11 @@ const  TrashNote=({children,index})=> {
     },[children])
 
   return (
-    <div className="bg-amber-200 NoteComp">
+    <div className=" NoteComp">
     <div className="NoteContainer">
-       <p> {note}</p>
-        <button  onClick={() => removeHandle()} className='bg-blue-100 ms-3' >delete</button>
-        <button onClick={() =>{revokeHandle()}} className='bg-gray-100 ms-3'>Revoke</button>
+       <p id="note"> {note[0].slice(0,83)}</p>
+       <span onClick={() =>{revokeHandle()}} class="revoke material-symbols-outlined">keyboard_return</span>
+       <span onClick={() => removeHandle()} class="delete material-symbols-outlined">scan_delete</span>
       </div>
 
     </div>

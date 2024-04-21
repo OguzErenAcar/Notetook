@@ -4,6 +4,8 @@ import Navbar from "./Component/Navbar";
 import "./Styles/style.scss"
 import PrivateRoute from "./Router/PrivateRoute";
 import Intro from "./Pages/Intro";
+import Footer from "./Component/Footer";
+import Header from "./Component/Header";
 function App() {
   return (
     <div className="App">
@@ -11,8 +13,10 @@ function App() {
         <Route path="/" 
         element={
         <PrivateRoute>
+          <Header/>
           <Navbar/>
           <Content/>
+          <Footer/>
         </PrivateRoute>}>
         </Route>
         <Route path="/Intro" element={<Intro/>}/>

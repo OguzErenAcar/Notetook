@@ -9,17 +9,19 @@ function FavNote({id,fav,text}) {
   }
 
   return (
-    <div className="bg-amber-200 NoteComp">
+    <div className="NoteComp">
       <div className="NoteContainer">
-        <p>{text}</p>
-        <button
+        <p id="note">{text.slice(0,83)}</p>
+        <span
           onClick={() => {removeFavhandle()}}
-          style={{
-            height: 20,
-            width: 20,
-            background: !fav ? "black" : "yellow",
-          }}
-        ></button>
+          className={
+            fav
+              ? "fav material-symbols-outlined"
+              : "notfav material-symbols-outlined"
+          }
+        >
+          hotel_class
+        </span>
       </div>
       
     </div>

@@ -13,7 +13,7 @@ useEffect(()=>{
    <>
    <nav>
     {children.map((item,index)=>(
-    <button key={index} onClick={() => setActive(index)} className={activeTab===index? "bg-green-100":"bg-red-100"} >{item.props.title}</button>
+    <button key={index} onClick={() => setActive(index)} className={activeTab===index? "activeButton":"inactiveButton"} >{item.props.title}</button>
     ))}
    </nav>
    </>

@@ -4,24 +4,44 @@ import ListComp from "./ListComp";
 import { useDispatch } from "react-redux";
 import { addNote } from "../../slices/NotesSlice";
 
-function Notes() {
-  const [currentNote, setcurrentNote] = useState("");  
-  const dispatch=useDispatch()
+function Notes({ ElementCount }) {
+  const [currentNote, setcurrentNote] = useState("");
+  const dispatch = useDispatch();
 
   const addTodo = () => {
-    dispatch(addNote(currentNote))
-    setcurrentNote("") 
-  }; 
+    if (currentNote !== "") dispatch(addNote(currentNote));
+    setcurrentNote("");
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === 'Enter' && currentNote !== "") {
+        dispatch(addNote(currentNote));
+        setcurrentNote("");
+      }
+    });
+  }, []);
 
   return (
     <div id="Notes">
       <div id="inputDiv">
-      <input  value={currentNote} onChange={(e)=>setcurrentNote(e.target.value)} className="bg-yellow-100" type="text"></input>
-      <button onClick={() => addTodo()} className="bg-blue-100" type="submit">
-        ekle
-      </button>
+        <div id="inputs">
+          <input
+            id="input"
+            value={currentNote}
+            onChange={(e) => setcurrentNote(e.target.value)}
+            type="text"
+          ></input>
+          <button id="add" onClick={() => addTodo()} type="submit">
+            Add
+          </button>
+        </div>
       </div>
-        <ListComp/> 
+      <ListComp
+        ElementCount={(i) => {
+          ElementCount(i);
+        }}
+      />
     </div>
   );
 }

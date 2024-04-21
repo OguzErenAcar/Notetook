@@ -2,8 +2,9 @@ import React, { useEffect, useState, useCallback } from "react";
 import Note from "./Note";
 import { useDispatch, useSelector } from "react-redux";
 import { removeNote } from "../../slices/NotesSlice";
+import { Listdiv } from "../Content";
 
-function ListComp() {
+function ListComp({ElementCount}) {
   const Todos= useSelector(state=>state.Notes.value)
   const [noteList, setnoteList] = useState(Todos); 
 
@@ -11,6 +12,7 @@ function ListComp() {
   
   useEffect(()=>{
     setnoteList(Todos)
+    ElementCount(noteList.length)
   },[Todos]) 
 
   const removeElement = (index) => {
@@ -18,7 +20,7 @@ function ListComp() {
   };
 
   return (
-    <div className="ListComp">
+    <Listdiv>
       {noteList && noteList.length > 0 ? (
         noteList.map((note, index) => (
         
@@ -27,9 +29,9 @@ function ListComp() {
             </Note>
          ))
       ) : (
-        <></>
+        <>This place is empty.</>
       )}
-    </div>
+    </Listdiv>
   );
 }
 
