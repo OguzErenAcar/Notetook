@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Content from "./Component/Content";
 import Navbar from "./Component/Navbar";
-import "./Styles/style.scss"
+import "./CSS/style.css"
 import PrivateRoute from "./Router/PrivateRoute";
 import Intro from "./Pages/Intro";
 import Footer from "./Component/Footer";
