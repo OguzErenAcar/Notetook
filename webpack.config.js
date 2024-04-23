@@ -1,19 +1,21 @@
 
-
-
 const path=require("path");
 module.exports={
     entry:'./src/index.js',
-    output:{
-        path:path.resolve(__dirname,"public"),
-        filename:'bundle.js'
+    output: {
+      filename: 'bundle.js',
+      path: path.resolve('dist'),
+      publicPath: '/',
     },
     module:{
         rules:[
             {
-                test:/\.js$/,
-                loader:"babel-loader",
-                exclude:"/node_modules/"
+              test: /\.(js|jsx)$/,
+              loader:"babel-loader",
+                exclude:"/node_modules/",
+                options: {
+                  presets: ["@babel/preset-env", "@babel/preset-react"]
+                }
             },
             {
                 test: /\.css$/,
